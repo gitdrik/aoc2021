@@ -1,11 +1,13 @@
 open("07.txt") do f
     ns = parse.(Int, split(readline(f),','))
-    f1, f2 = typemax(Int), typemax(Int)
-    for i ∈ minimum(ns):maximum(ns)
+    median = sort(ns)[500]
+    println("Part 1: ", sum(abs.(ns .- median)))
+
+    mean = sum(ns)÷length(ns)
+    f = typemax(Int)
+    for i ∈ min(mean, median)-1:max(mean, median)+1
         ds = abs.(ns .- i)
-        f1 = min(f1, sum(ds))
-        f2 = min(f2, sum((ds.*ds.+ds).÷2))
+        f = min(f, sum((ds.*ds.+ds).÷2))
     end
-    println("Part 1: ", f1)
-    println("Part 2: ", f2)
+    println("Part 2: ", f)
 end
