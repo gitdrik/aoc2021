@@ -16,15 +16,15 @@ open("08.txt") do f
         fives = [k for (k, v) ∈ charcount if v == 5]
         sixes = [k for (k, v) ∈ charcount if v == 6]
         decode[uniqueseg[2]] = 1
-        decode[uniqueseg[4]] = 4
         decode[uniqueseg[3]] = 7
+        decode[uniqueseg[4]] = 4
         decode[uniqueseg[7]] = 8
-        decode[[s for s ∈ fives if decode(1) ⊆ s][1]] = 3
+        decode[[s for s ∈ fives if decode(1) ⊆ s]...] = 3
         decode[decode(3) ∪ decode(4)] = 9
-        decode[[s for s ∈ sixes if decode(1) ⊈ s][1]] = 6
-        decode[[s for s ∈ sixes if s ≠ decode(9) && s ≠ decode(6)][1]] = 0
-        decode[[s for s ∈ fives if s ≠ decode(3) && s ∪ decode(4) == decode(8)][1]] = 2
-        decode[[s for s ∈ fives if s ≠ decode(3) && s ≠ decode(2)][1]] = 5
+        decode[[s for s ∈ sixes if decode(1) ⊈ s]...] = 6
+        decode[[s for s ∈ sixes if s ≠ decode(9) && s ≠ decode(6)]...] = 0
+        decode[[s for s ∈ fives if s ≠ decode(3) && s ∪ decode(4) == decode(8)]...] = 2
+        decode[[s for s ∈ fives if s ≠ decode(3) && s ≠ decode(2)]...] = 5
 
         p2 += [decode[Set(o)] for o in out]' * [1000, 100, 10, 1]
     end
