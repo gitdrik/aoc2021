@@ -1,3 +1,4 @@
+function p()
 open("09.txt") do f
     M = fill(9, 102, 102)
     for (y, l) ∈ enumerate(eachline(f))
@@ -16,7 +17,7 @@ open("09.txt") do f
     basins = Array{Int}([])
     seen = Set{Tuple{Int,Int}}()
     for l ∈ lows
-        l ∈ seen && continue
+#        l ∈ seen && continue
         edges = Set{Tuple{Int,Int}}([l])
         basin = 0
         while !isempty(edges)
@@ -31,4 +32,5 @@ open("09.txt") do f
         push!(basins, basin)
     end
     println("Part 2: ", prod(sort(basins)[end-2:end]))
+end
 end
