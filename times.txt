@@ -7,4 +7,4 @@ Measured using BenchmarkTools @btime
 06: 55 µs
 07: 0.43 ms
 08: 2.4 ms
-09: 1.9 ms
+09: 1.7 ms

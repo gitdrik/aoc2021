@@ -13,21 +13,22 @@ open("09.txt") do f
     end
     println("Part 1: ", p1)
 
-    basins = BitSet([])
+    basins = Array{Int}([])
     seen = Set{Tuple{Int,Int}}()
     for l ∈ lows
         l ∈ seen && continue
-        edges, basin = Set{Tuple{Int,Int}}([l]), Set{Tuple{Int,Int}}()
+        edges = Set{Tuple{Int,Int}}([l])
+        basin = 0
         while !isempty(edges)
             e = pop!(edges)
             push!(seen, e)
-            push!(basin, e)
+            basin += 1
             for n ∈ [a .+ e for a ∈ adj]
-                (M[n...] == 9 || n ∈ basin) && continue
+                (M[n...] == 9 || n ∈ seen) && continue
                 push!(edges, n)
             end
         end
-        push!(basins, length(basin))
+        push!(basins, basin)
     end
-    println("Part 2: ", pop!(basins)*pop!(basins)*pop!(basins))
+    println("Part 2: ", prod(sort(basins)[end-2:end]))
 end
