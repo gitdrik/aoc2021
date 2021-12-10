@@ -1,4 +1,3 @@
-function p()
 open("10.txt") do f
     ls = readlines(f)
     points = Dict(')'=>3, ']'=> 57, '}' => 1197, '>' => 25137)
@@ -29,5 +28,4 @@ open("10.txt") do f
     end
     println("Part 1: ", p1)
     println("Part 2: ", sort(P2)[(length(P2)+1)÷2])
-end
 end
