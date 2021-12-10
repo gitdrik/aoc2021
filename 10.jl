@@ -26,5 +26,5 @@ open("10.txt") do f
         end
     end
     println("Part 1: ", p1)
-    println("Part 2: ", sort(P2)[(length(P2)+1)÷2])
+    println("Part 2: ", sort(P2)[length(P2)÷2+1])
 end
