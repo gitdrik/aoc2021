@@ -1,10 +1,9 @@
 open("10.txt") do f
-    ls = readlines(f)
     points = Dict(')'=>3, ']'=> 57, '}' => 1197, '>' => 25137)
     points2 = Dict('(' => 1, '[' => 2, '{' => 3, '<' => 4)
     pairs = Dict('('=>')', '['=> ']', '{' => '}', '<' => '>')
     p1, P2 = 0, []
-    for l ∈ ls
+    for l ∈ eachline(f)
         S = []
         bad = false
         for c ∈ l
