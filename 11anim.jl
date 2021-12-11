@@ -1,14 +1,9 @@
 function pprint(O, t, p1, n)
+    m = ['█',' ','·','◦','🞊','∘','○','⊙','⦾','0','█']
     run(`clear`)
-    s = ""
     for i ∈ 1:10
-        for j ∈ 1:10
-            m = ['█',' ','·','◦','🞊','∘','○','⊙','⦾','0','█']
-            s *= m[min(11, max(0, O[i,j])+1)]
-        end
-        s *= "\n"
+        println(join([m[n] for n ∈ clamp.(O[i,:], 0, 10).+1]))
     end
-    print(s)
     println("Part 1: ", p1, " flashes")
     println("Part 2: ", t, " steps")
     sleep(n)
