@@ -1,4 +1,4 @@
-n("11.txt") do f
+open("11.txt") do f
     O = Array{Int}(undef, 10, 10)
     for (i, l) ∈ enumerate(eachline(f))
         O[i,:] = parse.(Int, collect(l))
