@@ -15,8 +15,7 @@ open("12.txt") do f
         else
             twice = twice || pos ∈ smalls
             islowercase(pos[1]) && (smalls = smalls ∪ Set([pos]))
-            nexts = twice ? setdiff(G[pos], smalls) : setdiff(G[pos], Set(["start"]))
-            for p ∈ nexts
+            for p ∈ setdiff(G[pos], twice ? smalls : Set(["start"]))
                 explore(p, smalls, twice)
             end
         end
