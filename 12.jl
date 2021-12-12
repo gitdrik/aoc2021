@@ -14,8 +14,8 @@ open("12.txt") do f
             paths += 1
         else
             twice = twice || pos ∈ smalls
-            nexts = twice ? setdiff(G[pos], smalls) : setdiff(G[pos], Set(["start"]))
             islowercase(pos[1]) && (smalls = smalls ∪ Set([pos]))
+            nexts = twice ? setdiff(G[pos], smalls) : setdiff(G[pos], Set(["start"]))
             for p ∈ nexts
                 explore(p, smalls, twice)
             end
