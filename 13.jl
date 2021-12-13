@@ -12,7 +12,7 @@ open("13.txt") do f
         for (x, y) ∈ P
             f == "x" && x > n && (x = 2n-x)
             f == "y" && y > n && (y = 2n-y)
-            push!(nP, (x,y))
+            push!(nP, (x, y))
         end
         P = nP
         i == 1 && println("Part 1: ", length(P))
@@ -20,7 +20,7 @@ open("13.txt") do f
     println("Part 2: ")
     for y ∈ 0:5
         for x ∈ 0:40
-            print((x,y) ∈ P ? '█' : ' ')
+            print((x, y) ∈ P ? '█' : ' ')
         end
         println()
     end
