@@ -1,11 +1,10 @@
+function p()
 open("12.txt") do f
     G = Dict{String, Set{String}}()
     for l ∈ eachline(f)
         a, b = split(l,'-')
-        a ∉ keys(G) && (G[a] = Set())
-        b ∉ keys(G) && (G[b] = Set())
-        push!(G[a], b)
-        push!(G[b], a)
+        a ∈ keys(G) ? push!(G[a], b) : G[a] = Set([b])
+        b ∈ keys(G) ? push!(G[b], a) : G[b] = Set([a])
     end
 
     paths = 0
@@ -26,4 +25,5 @@ open("12.txt") do f
     paths = 0
     explore("start", Set{String}(), false)
     println("Part 2: ", paths)
+end
 end
