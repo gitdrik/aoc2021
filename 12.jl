@@ -1,4 +1,3 @@
-function p()
 open("12.txt") do f
     G = Dict{String, Set{String}}()
     for l ∈ eachline(f)
@@ -25,5 +24,4 @@ open("12.txt") do f
     paths = 0
     explore("start", Set{String}(), false)
     println("Part 2: ", paths)
-end
 end
