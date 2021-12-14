@@ -1,3 +1,5 @@
+using Counters
+
 open("14.txt") do f
     s = readline(f)
     readline(f)
@@ -6,12 +8,14 @@ open("14.txt") do f
         d[l[1:2]] = l[7]*l[2]
     end
 
-    ns = s[1]
+    ns = ""
     for i ∈ 1:10
+        ns = s[1]
         for j ∈ 1:length(s)-1
             ns *= d[s[i:i+1]]
         end
-        println(length(ns))
+        println(counter(collect(ns)))
         s = ns
     end
+
 end
