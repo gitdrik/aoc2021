@@ -1,5 +1,4 @@
 using Counters
-
 open("14.txt") do f
     s = readline(f)
     readline(f)
