@@ -3,7 +3,6 @@ open("16.txt") do f
     for c ∈ readline(f)
         B = [B; BitArray(reverse(digits(parse(Int, "0x"*c), base=2, pad=4)))]
     end
-
     bits2int(bits) = bits' * [2^n for n ∈ length(bits)-1:-1:0]
 
     p1 = 0
@@ -54,8 +53,6 @@ open("16.txt") do f
         P[1] == 5 && return Int(calc(P[2][1]) > calc(P[2][2]))
         P[1] == 6 && return Int(calc(P[2][1]) < calc(P[2][2]))
         P[1] == 7 && return Int(calc(P[2][1]) == calc(P[2][2]))
-        println("Synax error!")
-        exit()
     end
     println("Part 2: ", calc(PP))
 end
