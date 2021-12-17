@@ -10,7 +10,7 @@ open("16.txt") do f
         ver = bits2int(B[pos:pos+2])
         p1 += ver
         ID = bits2int(B[pos+3:pos+5])
-        if ID == 4 # value packet
+        if ID == 4 # value packe
             pos += 6
             vbits = []
             while true
@@ -40,7 +40,8 @@ open("16.txt") do f
             return pos, [ID, P]
         end
     end
-    # If i name PP below as P, I get a circular reference error!!
+    # Replacing name of PP with P, creates circular reference error!!
+    # Is this a bug in julia 1.5.3??
     pos, PP = pack(1)
     println("Part 1: ", p1)
 
