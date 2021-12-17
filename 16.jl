@@ -41,7 +41,7 @@ open("16.txt") do f
         end
     end
     # Replacing name of PP with P, creates circular reference error!!
-    # Is this a bug in julia 1.5.3??
+    # Same on 1.5.3 and 1.7.0 Why? Is this a bug?
     pos, PP = pack(1)
     println("Part 1: ", p1)
 
