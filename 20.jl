@@ -12,7 +12,7 @@ open("20.txt") do f
     end
     for t∈1:50
         nI = isodd(t) ? trues(202, 202) : falses(202, 202)
-        for r∈2:201, c∈2:201
+        for r∈52-t:151+t, c∈52-t:151+t
             nI[r,c] = E[I[r-1:r+1, c-1:c+1]]
         end
         I = nI
