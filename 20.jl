@@ -10,9 +10,9 @@ open("20.txt") do f
     for (i, l) ∈ enumerate(readlines(f))
         I[52:151, i+51] = [c=='#' for c ∈ l]
     end
-    for t∈1:50
+    for t ∈ 1:50
         nI = isodd(t) ? trues(202, 202) : falses(202, 202)
-        for r∈52-t:151+t, c∈52-t:151+t
+        for r ∈ 52-t:151+t, c ∈ 52-t:151+t
             nI[r,c] = E[I[r-1:r+1, c-1:c+1]]
         end
         I = nI
