@@ -18,3 +18,4 @@ Measured using BenchmarkTools @btime
 17: 0.40 ms
 18: 4.0 s
 19: 100 s
+20: 0.25 s
