@@ -1,3 +1,4 @@
+function p()
 open("22.txt") do f
     C = []
     for l ∈ readlines(f)
@@ -25,12 +26,13 @@ open("22.txt") do f
 
     lights = []
     for (i, c) ∈ enumerate(C)
-        nlights = []
+        nlights::Vector{Vector{UnitRange{Int64}}} = c.on ? [[c.xr, c.yr, c.zr]] : []
         for l ∈ lights
-            nlights = [nlights; subtract(l, [c.xr, c.yr, c.zr])]
+            append!(nlights, subtract(l, [c.xr, c.yr, c.zr]))
         end
-        lights = c.on ? [nlights; [[c.xr, c.yr, c.zr]]] : nlights
+        lights = nlights
         i == 20 && println("Part 1: ", sum(volume.(lights)))
     end
     println("Part 2: ", sum(volume.(lights)))
+end
 end
