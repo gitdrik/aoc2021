@@ -1,4 +1,3 @@
-function p()
 open("22.txt") do f
     C = []
     for l ∈ readlines(f)
@@ -34,5 +33,4 @@ open("22.txt") do f
         i == 20 && println("Part 1: ", sum(volume.(lights)))
     end
     println("Part 2: ", sum(volume.(lights)))
-end
 end
