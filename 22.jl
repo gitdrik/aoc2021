@@ -8,14 +8,6 @@ open("22.txt") do f
             zr = parse(Int, ss[9]):parse(Int, ss[10])))
     end
 
-    P1 = Set{Tuple{Int, Int, Int}}()
-    for i ∈ 1:20
-        for x ∈ C[i].xr, y ∈ C[i].yr, z ∈ C[i].zr
-            C[i].on ? push!(P1, (x,y,z)) : delete!(P1, (x,y,z))
-        end
-    end
-    println("Part 1: ", length(P1))
-
     function subtract(a, b) # Substracts b from a
         intersection = [a[1]∩b[1], a[2]∩b[2], a[3]∩b[3]]
         intersection == a && return []
@@ -29,23 +21,16 @@ open("22.txt") do f
         return filter(a->all((!isempty).(a)), [left, right, top, bottom, front, back])
     end
 
-    lights = []
-    for c ∈ C
-        if c.on
-            nlights = [[c.xr, c.yr, c.zr]]
-            for l ∈ lights
-                nlights = vcat([subtract(n, l) for n in nlights]...)
-            end
-            lights = [lights; nlights]
-        else
-            nlights = []
-            for l ∈ lights
-                nlights = [nlights; subtract(l, [c.xr, c.yr, c.zr])]
-            end
-            lights = nlights
-        end
-    end
-
     volume(a) = prod(length.(a))
+
+    lights = []
+    for (i, c) ∈ enumerate(C)
+        nlights = []
+        for l ∈ lights
+            nlights = [nlights; subtract(l, [c.xr, c.yr, c.zr])]
+        end
+        lights = c.on ? [nlights; [[c.xr, c.yr, c.zr]]] : nlights
+        i == 20 && println("Part 1: ", sum(volume.(lights)))
+    end
     println("Part 2: ", sum(volume.(lights)))
 end
