@@ -1,0 +1,196 @@
+inp w     - d1
+mul y 0   - set y to 0
+add y w   - set y to d1
+add y 9   - set y to d1+9
+add z y   - set z to d1+9
+inp w     - d2
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to (d1+9)*26
+mul y 0   - set y to 0
+add y w   - set y to d2
+add y 4   - set y to d2+4
+add z y   - set z to (d1+9)*26 + d2+4
+inp w     - d3
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to ((d1+9)*26 + d2+4)*26
+mul y 0   - set y t0 0
+add y w   - set y to d3
+add y 2   - set y to d3+2
+add z y   - set z to ((d1+9)*26 + d2+4)*26 + d3+2
+inp w     - d4
+mul x 0   - set x to 0
+add x z   - set x to ((d1+9)*26 + d2+4)*26 + d3+2
+mod x 26  - set x to d3+2
+div z 26  - set z to (d1+9)*26 + d2+4
+add x -9  - set x to d3-7
+eql x w   - set x to d3-7==d4
+eql x 0   - set x to d3-7!=d4 ------------------------->  0 lets lock d3 = d4+7
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 25*(d3-7!=d4) = 0
+add y 1   - set y to 1
+mul z y   - set z to (d1+9)*26 + d2+4
+mul y 0   - set y to 0
+add y w   - set y to d4
+add y 5   - set y to d4+5
+mul y x   - set y to 0
+add z y   - set z to (d1+9)*26 + d2+4
+inp w     - d5
+mul x 0   - set x to 0
+add x z   - set x to (d1+9)*26 + d2+4
+mod x 26  - set x to d2+4
+div z 26  - set z to d1+9
+add x -9  - set x to d2-5
+eql x w   - set x to (d2-5)==d5
+eql x 0   - set x to (d2-5)!=d5 -----------------------> 0 if we lock d2 = d5+5
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to d1+9
+mul y 0   - set y to 0
+add y w   - set y to d5
+add y 1   - set y to d5+2
+mul y x   - set y to 0
+add z y   - ... z to d1+9
+inp w     - d6
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to (d1+9)*26
+mul y 0   - set y to 0
+add y w   - set y to d6
+add y 6   - set y to d6+6
+add z y   - set z to (d1+9)*26 + d6+6
+inp w     - d7
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to ((d1+9)*26 + d6+6)*26
+mul y 0   - set y to 0
+add y w   - set y to d7
+add y 11  - set y to d7+11
+add z y   - set z to ((d1+9)*26 + d6+6)*26 + d7+11
+inp w     - d8
+mul x 0   - set x to 0
+add x z   - set x to ((d1+9)*26 + d6+6)*26 + d7+11
+mod x 26  - set x to d7+11
+div z 26  - set z to (d1+9)*26 + d6+6
+add x -10 - set x to d7+1
+eql x w   - set x to d7+1==d8
+eql x 0   - set x to d7+1!=d8 ---------------------------------> 0 if d8 = d7+1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to (d1+9)*26 + d6+6
+mul y 0   - set y to 0
+add y w   - set y to d8
+add y 15  - set y to d8+15
+mul y x   - set y to 0
+add z y   - ... z to (d1+9)*26 + d6+6
+inp w     - d9
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to ((d1+9)*26 + d6+6)*26
+mul y 0   - set y to 0
+add y w   - set y to d9
+add y 7   - set y to d9+7
+add z y   - set z to ((d1+9)*26 + d6+6)*26 + d9+7
+inp w     - d10
+mul x 0   - set x to 0
+add x z   - set x to ((d1+9)*26 + d6+6)*26 + d9+7
+mod x 26  - set x to d9+7
+div z 26  - set z to (d1+9)*26 + d6+6
+add x -2  - set x to d9+5
+eql x w   - set x to d9+5==d10
+eql x 0   - set x to d9+5!=d10 -------------------------------> 0 if d10 = d9+5
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to (d1+9)*26 + d6+6
+mul y 0   - set y to 0
+add y w   - set y to d10
+add y 12  - set y to d10+12
+mul y x   - set y to 0
+add z y   - ... z to (d1+9)*26 + d6+6
+inp w     - d11
+mul x 0   - set x to 0
+eql x 0   - set x to 1
+mul y 0   - set y to 0
+add y 25  - set y to 25
+add y 1   - set y to 26
+mul z y   - set z to ((d1+9)*26 + d6+6)*26
+mul y 0   - set y to 0
+add y w   - set y to d11
+add y 15  - set y to d11+15
+mul y x   - set y to d11+15
+add z y   - set z to ((d1+9)*26 + d6+6)*26 + d11+15
+inp w     - d12
+mul x 0   - set x to 0
+add x z   - set x to ((d1+9)*26 + d6+6)*26 + d11+15
+mod x 26  - set x to d11+15
+div z 26  - set z to (d1+9)*26 + d6+6
+add x -15 - set x to d11
+eql x w   - set x to d11==d12
+eql x 0   - set x to d11!=d12 ---------------------------------> 0 if d11 = d12
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to (d1+9)*26 + d6+6
+mul y 0   - set y to 0
+add z y   - ... z to (d1+9)*26 + d6+6
+inp w     - d13
+mul x 0   - set x to 0
+add x z   - set x to (d1+9)*26 + d6+6
+mod x 26  - set x to d6+6
+div z 26  - set z to (d1+9)
+add x -9  - set x to d6-3
+eql x w   - set x to d6-3 == d13
+eql x 0   - set x to d6-3 != d13 -----------------------------> 0 if d6 = d13+3
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to (d1+9)
+mul y 0   - set y to 0
+add y w   - set y to d13
+add y 12  - set y to d13+12
+mul y x   - set y to 0
+add z y   - ... z to (d1+9)
+inp w     - d14
+mul x 0   - set x to 0
+add x z   - set x to (d1+9)
+mod x 26  - set x to (d1+9)
+div z 26  - set z to 0
+add x -3  - set x to d1+6
+eql x w   - set x to d1+6==d14
+eql x 0   - set x to d1+6!=d14 -------------------------------> 0 if d14 = d1+6
+mul y 0   - set y to 0
+add y 25  - set y to 25
+mul y x   - set y to 0
+add y 1   - set y to 1
+mul z y   - ... z to 0
+mul y 0   - set y to 0
+add y w   - set y to d14
+add y 12  - set y to d14+12
+mul y x   - set y to 0
+add z y   - ... z to 0
