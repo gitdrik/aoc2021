@@ -23,3 +23,4 @@ Measured using BenchmarkTools @btime
 22: 0.35 s
 23: 4.5 s
 24: 0.13 ms
+25: 86 ms
