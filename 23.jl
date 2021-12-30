@@ -62,7 +62,6 @@ function solve()
             end
         end
         return minenergy
-        minenergy ≠ typemax(Int) && print(home, minenergy)
     end
     println("Part 2: ", move(rooms, home, hall, 0))
 end
